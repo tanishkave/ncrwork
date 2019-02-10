@@ -23,16 +23,12 @@ int main()
 	printf("Hexadecimal: %s\n",res2);
 
 	return 0;
-
-
 }
 
 void itob(int dec,char *s1)
 {
 	char bin[10];
-	char revbin[10];
-	int i=0;
-	int r,j,k;
+	int r,i=0;
 
 	while(dec!=0)
 	{
@@ -41,20 +37,15 @@ void itob(int dec,char *s1)
 		dec=dec/2;
 		i++;
 	}
-	
-	for(k=0,j=i-1;j>-1;k++,j--)
-		revbin[k]=bin[j];
-	revbin[k]='\0';
-	//printf("bin = %s\n",bin);
-	//printf("revbin = %s\n",revbin);
-	strcpy(s1,revbin);		
+	bin[i]='\0'
+	strrev(bin);
+	strcpy(s1,bin);		
 }
 
 void itoh(int dec,char *s2)
 {
 	char hex[10];
-	char revhex[10];
-	int r,k,j,i=0;
+	int r,i=0;
 
 	while(dec!=0)
 	{
@@ -67,12 +58,9 @@ void itoh(int dec,char *s2)
 		i++;
 	}
 
-	for(j=i-1,k=0;j>-1;j--,k++)
-		revhex[k]=hex[j];
-	revhex[k]='\0';
-	//printf("hex = %s\n",hex);
-	//printf("revhex = %s\n",revhex);
-	strcpy(s2,revhex);
+	hex[i]='\0';
+	strrev(hex);
+	strcpy(s2,hex);
 }
 
 /*Handle input=0 case*/
